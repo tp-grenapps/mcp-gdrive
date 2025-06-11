@@ -6,10 +6,17 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from typing import List, Dict, Optional
+ 
+from dotenv import load_dotenv
+ 
+load_dotenv()
+ 
+cred_file=os.getenv("CRED_FILE")
+token_file = os.getenv("TOKEN_FILE")
 
 class GoogleDriveAPI:
     # def __init__(self, credentials_file: str = 'credentials.json', token_file: str = 'token.json'):
-    def __init__(self, credentials_file: str = 'D:\\ltp\\mcp\\gdrive\\mcp-gdrive-py\\.config\\gcp-oauth.keys.json', token_file: str = 'D:\\ltp\\mcp\\gdrive\\mcp-gdrive-py\\.config\\tokens.json'):
+    def __init__(self, credentials_file: str = cred_file, token_file: str = token_file):
         """
         Initialize Google Drive API client
         
